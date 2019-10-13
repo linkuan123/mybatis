@@ -4,6 +4,13 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <!-- mybatis的主配置文件 -->
 <configuration>
+    <!--引入外部数据库配置文件或者提取数据库配置信息-->
+    <properties resource="jdbcConfig.properties" >
+        <!-- <property name="driver" value="com.mysql.jdbc.Driver"></property>
+         <property name="url" value="jdbc:mysql://localhost:3306/mybatis_2?useUnicod=true&amp;characterEncoding=utf-8"></property>
+         <property name="username" value="root"></property>
+         <property name="password" value="123456"></property>-->
+    </properties>
 
     <typeAliases>
         <!--typeAlias用于配置别名。type属性指定的是实体类全限定类名。alias属性指定别名，当指定了别名就不再区分大小写
@@ -23,10 +30,10 @@
             <!-- 配置数据源（连接池） -->
             <dataSource type="POOLED">
                 <!-- 配置连接数据库的4个基本信息 -->
-                <property name="driver" value="com.mysql.jdbc.Driver"/>
-                <property name="url" value="jdbc:mysql://localhost:3306/mybatis_2?useUnicod=true&amp;characterEncoding=utf-8"/>
-                <property name="username" value="root"/>
-                <property name="password" value="123456"/>
+                <property name="driver" value="${jdbc.driver}"/>
+                <property name="url" value="${jdbc.url}?useUnicod=true&amp;characterEncoding=utf-8"/>
+                <property name="username" value="${jdbc.username}"/>
+                <property name="password" value="${jdbc.password}"/>
             </dataSource>
         </environment>
     </environments>
