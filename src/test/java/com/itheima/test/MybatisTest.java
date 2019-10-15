@@ -145,4 +145,15 @@ public class MybatisTest {
             System.out.println(u);
         }
     }
+
+    @Test
+    public void testFindUserByCondition(){
+        User u = new User();
+        u.setUserName("老王");
+        // u.setUserSex("男");
+        List<User> users = userDao.findUserByCondition(u);
+        for(User user : users){
+            System.out.println(user);
+        }
+    }
 }
