@@ -77,4 +77,10 @@ public interface IUserDao {
      * @return
      */
     List<User> findUserInIds(QueryVo vo);
+
+    /**
+     * 一对多查询
+     * @return
+     */
+    List<User> findUserAccountAll();
 }
