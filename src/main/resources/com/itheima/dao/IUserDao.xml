@@ -77,4 +77,17 @@
             </if>
         </where>
     </select>
+
+    <!--根据id集合查询用户-->
+    <select id="findUserInIds" resultMap="userMap" parameterType="queryvo">
+        <!--select * from user where id in (1, 2, 3, 4, 5);-->
+        select * from user
+        <where>
+            <if test="ids != null and ids.size() > 0">
+                <foreach collection="ids" open="id in (" close=")" item="uid" separator=",">
+                    #{uid}
+                </foreach>
+            </if>
+        </where>
+    </select>
 </mapper>

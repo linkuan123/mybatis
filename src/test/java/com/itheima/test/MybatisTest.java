@@ -12,6 +12,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -146,12 +147,34 @@ public class MybatisTest {
         }
     }
 
+    /*
+    动态sql - if
+     */
     @Test
     public void testFindUserByCondition(){
         User u = new User();
         u.setUserName("老王");
         // u.setUserSex("男");
         List<User> users = userDao.findUserByCondition(u);
+        for(User user : users){
+            System.out.println(user);
+        }
+    }
+
+    /**
+     * 测试foreach标签的使用
+     */
+    @Test
+    public void testFindInIds(){
+        QueryVo vo = new QueryVo();
+        List<Integer> list = new ArrayList<Integer>();
+        list.add(41);
+        list.add(42);
+        list.add(46);
+        vo.setIds(list);
+
+        //5.执行查询所有方法
+        List<User> users = userDao.findUserInIds(vo);
         for(User user : users){
             System.out.println(user);
         }
