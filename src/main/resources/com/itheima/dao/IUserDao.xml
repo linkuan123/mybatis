@@ -31,7 +31,6 @@
         insert into user(username, address, sex, birthday)
         values(#{userName}, #{userAddress}, #{userSex}, #{userBirthday});
     </insert>
-
     <!--全局配置中定义了typeAliases属性定义别名之后就不需要写全限定类名了-->
     <!--更新用户-->
     <update id="updateUser" parameterType="User">

@@ -66,10 +66,10 @@ public class MybatisTest {
     @Test
     public void testSave(){
         User user = new User();
-        user.setUserName("modify User property");
-        user.setUserAddress("陕西西安");
-        user.setUserSex("男");
-        user.setUserBirthday(new Date());
+        user.setUsername("modify User property");
+        user.setAddress("陕西西安");
+        user.setSex("男");
+        user.setBirthday(new Date());
         System.out.println("操作保存前" + user);
         // 5、执行保存方法
         userDao.saveUser(user);
@@ -83,11 +83,11 @@ public class MybatisTest {
     @Test
     public void testUpdate(){
         User user = new User();
-        user.setUserId(54);
-        user.setUserName("mybastis update user");
-        user.setUserAddress("北京市顺义区");
-        user.setUserSex("女");
-        user.setUserBirthday(new Date());
+        user.setId(54);
+        user.setUsername("mybastis update user");
+        user.setAddress("北京市顺义区");
+        user.setSex("女");
+        user.setBirthday(new Date());
 
         userDao.updateUser(user);
     }
@@ -138,7 +138,7 @@ public class MybatisTest {
     public void testFindByVo(){
         QueryVo vo = new QueryVo();
         User user = new User();
-        user.setUserName("%王%");
+        user.setUsername("%王%");
         vo.setUser(user);
         //5.执行查询一个方法
         List<User> users = userDao.findUserByVo(vo);
@@ -153,7 +153,7 @@ public class MybatisTest {
     @Test
     public void testFindUserByCondition(){
         User u = new User();
-        u.setUserName("老王");
+        u.setUsername("老王");
         // u.setUserSex("男");
         List<User> users = userDao.findUserByCondition(u);
         for(User user : users){
