@@ -17,8 +17,10 @@ public interface IAccountDao {
     List<Account> findAll();
 
     /**
-     * 查询所有账户，并且带有用户名称和地址信息
+     * 根据用户id查询账户信息
+     * @param uid
      * @return
      */
+    List<Account> findAccountByUid(Integer uid);
 
 }

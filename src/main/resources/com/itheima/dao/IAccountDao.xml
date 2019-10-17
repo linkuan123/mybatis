@@ -10,12 +10,10 @@
         <result property="uid" column="uid"></result>
         <result property="money" column="money"></result>
     <!--一对一的关系映射；配置封装user的内容-->
-        <association property="user" column="uid" javaType="user">
-            <id property="id" column="id"></id>
-            <result property="username" column="username"></result>
-            <result property="address" column="address"></result>
-            <result property="sex" column="sex"></result>
-            <result property="birthday" column="birthday"></result>
+        <!--select属性：查询用户的唯一标识
+        column属性：用户根据id查询时所需要的参数-->
+        <association property="user" column="uid" javaType="user"
+                     select="com.itheima.dao.IUserDao.findById">
         </association>
 
     </resultMap>
@@ -25,5 +23,10 @@
         select u.*, a.id as aid, a.uid, a.money
         from account a, user u
         where a.uid = u.id;
+    </select>
+
+    <!-- 根据用户id查询账户列表 -->
+    <select id="findAccountByUid" resultType="account">
+        select * from account where uid = #{uid}
     </select>
 </mapper>
