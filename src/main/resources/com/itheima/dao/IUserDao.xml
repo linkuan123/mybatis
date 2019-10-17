@@ -16,10 +16,9 @@
         <result property="sex" column="sex"></result>
         <result property="birthday" column="birthday"></result>
         <!-- 配置user对象中accounts集合的映射 -->
-        <collection property="accounts" ofType="account">
-            <id column="aid" property="id"></id>
-            <result column="uid" property="uid"></result>
-            <result column="money" property="money"></result>
+        <collection property="accounts" ofType="account"
+                    select="com.itheima.dao.IAccountDao.findAccountByUid" column="id">
+
         </collection>
         <!--user到role的多对多-->
         <collection property="roles" ofType="role">
