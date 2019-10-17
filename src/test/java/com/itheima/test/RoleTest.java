@@ -55,5 +55,11 @@ public class RoleTest {
         }
     }
 
+    @Test
+    public void testFindById(){
+        Role role = roleDao.findRoleByRoleId(1);
+        System.out.println(role);
+    }
+
 
 }

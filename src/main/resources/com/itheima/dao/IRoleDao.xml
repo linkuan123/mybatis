@@ -23,4 +23,9 @@
         left outer join user_role ur  on r.id = ur.rid
         left outer join user u on u.id = ur.uid
     </select>
+
+    <!-- 根据用户id查询列表 -->
+    <select id="findRoleByRoleId" resultType="role">
+        select * from role where id = #{roleId}
+    </select>
 </mapper>

@@ -15,4 +15,11 @@ public interface IRoleDao {
      * @return
      */
     List<Role> findAll();
+
+    /**
+     * 根据用户id查询账户信息
+     * @param roleId
+     * @return
+     */
+    Role findRoleByRoleId(Integer roleId);
 }

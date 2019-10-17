@@ -21,10 +21,9 @@
 
         </collection>
         <!--user到role的多对多-->
-        <collection property="roles" ofType="role">
-            <id property="roleId" column="id"></id>
-            <result property="roleName" column="role_name"></result>
-            <result property="roleDesc" column="role_desc"></result>
+        <collection property="roles" ofType="role"
+                    select="com.itheima.dao.IRoleDao.findRoleByRoleId" column="id">
+
         </collection>
     </resultMap>
 
