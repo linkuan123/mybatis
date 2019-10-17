@@ -9,12 +9,12 @@
     <!-- 配置 查询结果的列名和实体类的属性名的对应关系 -->
     <resultMap id="userMap" type="uSeR">
         <!-- 主键字段的对应 -->
-        <id property="userId" column="id"></id>
+        <id property="id" column="id"></id>
         <!--非主键字段的对应-->
-        <result property="userName" column="username"></result>
-        <result property="userAddress" column="address"></result>
-        <result property="userSex" column="sex"></result>
-        <result property="userBirthday" column="birthday"></result>
+        <result property="username" column="username"></result>
+        <result property="address" column="address"></result>
+        <result property="sex" column="sex"></result>
+        <result property="birthday" column="birthday"></result>
     </resultMap>
     <!-- 一对多userAccountMap-->
     <resultMap id="userAccountMap" type="user">
