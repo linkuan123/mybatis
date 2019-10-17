@@ -1,6 +1,7 @@
 package com.itheima.dao;
 
 import com.itheima.domain.QueryVo;
+import com.itheima.domain.Role;
 import com.itheima.domain.User;
 
 import java.util.List;
@@ -83,4 +84,10 @@ public interface IUserDao {
      * @return
      */
     List<User> findUserAccountAll();
+
+    /**
+     * 多对多，一个user有多个role
+     * @return
+     */
+    List<User> findUserRoleAll();
 }

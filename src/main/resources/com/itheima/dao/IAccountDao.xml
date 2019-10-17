@@ -17,6 +17,7 @@
             <result property="sex" column="sex"></result>
             <result property="birthday" column="birthday"></result>
         </association>
+
     </resultMap>
 
     <!--配置查询所有操作-->

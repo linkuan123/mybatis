@@ -3,6 +3,7 @@ package com.itheima.test;
 import com.itheima.dao.IAccountDao;
 import com.itheima.dao.IUserDao;
 import com.itheima.domain.Account;
+import com.itheima.domain.Role;
 import com.itheima.domain.User;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -56,6 +57,17 @@ public class UserTest {
             System.out.println("--------每个account的信息------------");
             System.out.println(user);
             System.out.println(user.getAccounts());
+        }
+    }
+
+    @Test
+    public void findUserRoleAll(){
+        List<User> users = userDao.findUserRoleAll();
+        for(User user : users){
+            System.out.println("-------每个role的信息-------");
+            System.out.println(user);
+            System.out.println(user.getRoles());
+
         }
     }
 
